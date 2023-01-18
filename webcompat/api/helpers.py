@@ -33,5 +33,6 @@ def get_html_comments(response):
         comment_json = [comment_json]
     comment_html = render_template('issue/issue-comment-list.html',
                                    comments=comment_json)
+    # Possible XSS
     return make_response(comment_html, comment_status,
                          get_response_headers(response, HTML_MIME))
